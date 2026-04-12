@@ -1,0 +1,54 @@
+{
+  "name": "reveal-current-file",
+  "displayName": "Reveal Current File",
+  "description": "Adds an Explorer toolbar button that reveals the active file in Explorer.",
+  "version": "0.0.1",
+  "publisher": "local-dev",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.115.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "explorer",
+    "editor",
+    "file",
+    "reveal"
+  ],
+  "activationEvents": [
+    "onCommand:revealCurrentFile.revealInExplorer"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "revealCurrentFile.revealInExplorer",
+        "title": "Reveal Current File in Explorer",
+        "icon": "$(folder-opened)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "revealCurrentFile.revealInExplorer",
+          "when": "view == workbench.explorer.fileView",
+          "group": "navigation@100"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "npm run compile",
+    "package": "npm run compile && npx @vscode/vsce package --allow-missing-repository"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "@types/vscode": "^1.115.0",
+    "@vscode/vsce": "^3.7.1",
+    "typescript": "^6.0.2"
+  }
+}
