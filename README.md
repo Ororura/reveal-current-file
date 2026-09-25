@@ -78,3 +78,12 @@ npx @vscode/vsce package --allow-missing-repository
 5. Если встроенная команда недоступна или завершилась ошибкой, сделать fallback: открыть Explorer и вызвать `revealInExplorer` напрямую для URI файла.
 
 За счет этого решение остается коротким, надежным и без лишних зависимостей.
+
+## Troubleshooting
+
+If the Explorer button is not visible:
+
+1. Make sure the extension is enabled.
+2. Open the Command Palette.
+3. Run `Developer: Reload Window`.
+4. Check that Explorer is visible.
